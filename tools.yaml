@@ -16,4 +16,4 @@ tools:
     urlTemplate: "https://github.com/derailed/k9s/releases/download/{{ .ToolVersion }}/k9s_{{ .Os }}_{{ .Arch }}"
   - name: aws
     version: v2.1.2
-    urlTemplate: "https://aws.com/{{ .ToolVersion }}/bin/{{ .Os }}/{{ .Arch }}/aws"
+    urlTemplate: "https://awscli.amazonaws.com/"
