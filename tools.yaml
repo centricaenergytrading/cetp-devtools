@@ -1,19 +1,37 @@
 tools:
   - name: kubectl
     version: v1.26.2
-    urlTemplate: "https://dl.k8s.io/release/{{ .ToolVersion }}/bin/{{ .Os }}/{{ .Arch }}/kubectl"
+    urlTemplates:
+      linux: "https://dl.k8s.io/release/{{ .ToolVersion }}/bin/{{ .Os }}/{{ .Arch }}/kubectl"
+      darwin: "https://dl.k8s.io/release/{{ .ToolVersion }}/bin/{{ .Os }}/{{ .Arch }}/kubectl"
+      windows: "https://dl.k8s.io/release/{{ .ToolVersion }}/bin/{{ .Os }}/{{ .Arch }}/kubectl.exe"
   - name: sops
     version: v3.7.3
-    urlTemplate: "https://github.com/getsops/sops/releases/download/{{ .ToolVersion }}/sops-{{ .ToolVersion }}.{{ .Os }}"
+    urlTemplates:
+      linux: "https://github.com/getsops/sops/releases/download/{{ .ToolVersion }}/sops-{{ .ToolVersion }}.{{ .Os }}.{{ .Arch }}"
+      darwin: "https://github.com/getsops/sops/releases/download/{{ .ToolVersion }}/sops-{{ .ToolVersion }}.{{ .Os }}.{{ .Arch }}"
+      windows: "https://github.com/getsops/sops/releases/download/{{ .ToolVersion }}/sops-{{ .ToolVersion }}.exe"
   - name: argo
     version: v3.4.8
-    urlTemplate: "https://github.com/argoproj/argo-workflows/releases/download/{{ .ToolVersion }}/argo-{{ .Os }}-{{ .Arch }}"
+    urlTemplates:
+      linux: "https://github.com/argoproj/argo-workflows/releases/download/{{ .ToolVersion }}/argo-{{ .Os }}-{{ .Arch }}.gz"
+      darwin: "https://github.com/argoproj/argo-workflows/releases/download/{{ .ToolVersion }}/argo-{{ .Os }}-{{ .Arch }}.gz" 
+      windows: "https://github.com/argoproj/argo-workflows/releases/download/{{ .ToolVersion }}/argo-{{ .Os }}-{{ .Arch }}.exe.gz"
   - name: fzf
     version: "0.42.0"
-    urlTemplate: "https://github.com/junegunn/fzf/releases/download/{{ .ToolVersion }}/fzf-{{ .ToolVersion }}-{{ .Os }}_{{ .Arch }}"
+    urlTemplates: 
+      linux: "https://github.com/junegunn/fzf/releases/download/{{ .ToolVersion }}/fzf-{{ .ToolVersion }}-{{ .Os }}_{{ .Arch }}.tar.gz"
+      darwin: "https://github.com/junegunn/fzf/releases/download/{{ .ToolVersion }}/fzf-{{ .ToolVersion }}-{{ .Os }}_{{ .Arch }}.zip"
+      windows: "https://github.com/junegunn/fzf/releases/download/{{ .ToolVersion }}/fzf-{{ .ToolVersion }}-{{ .Os }}_{{ .Arch }}.zip"
   - name: k9s
     version: v0.27.4
-    urlTemplate: "https://github.com/derailed/k9s/releases/download/{{ .ToolVersion }}/k9s_{{ .Os }}_{{ .Arch }}"
+    urlTemplates:
+      linux: "https://github.com/derailed/k9s/releases/download/{{ .ToolVersion }}/k9s_{{ .Os }}_{{ .Arch }}.tar.gz"
+      darwin: "https://github.com/derailed/k9s/releases/download/{{ .ToolVersion }}/k9s_{{ .Os }}_{{ .Arch }}.tar.gz"
+      windows: "https://github.com/derailed/k9s/releases/download/{{ .ToolVersion }}/k9s_{{ .Os }}_{{ .Arch }}.zip"
   - name: aws
     version: v2.1.2
-    urlTemplate: "https://awscli.amazonaws.com/"
+    urlTemplates:
+      linux: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
+      darwin: "https://awscli.amazonaws.com/AWSCLIV2.pkg"
+      windows: "https://awscli.amazonaws.com/AWSCLIV2.msi"
